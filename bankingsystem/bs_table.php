@@ -5,21 +5,42 @@
         width: 100%;
     }
 
+.button {
+            display: inline-block;
+            background-color: #4CAF50;
+            border: none;
+            color: #f0f5f6;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
     th, td {
         padding: 8px;
-        text-align: left;
+        text-align: center;
+        font-size: 20px;
         border-bottom: 1px solid #ddd;
     }
 
     /* Table header styling */
     th {
-        background-color: #f2f2f2;
+        font-size: 20px;
+        color: #15c1a1;
+        background-color: #333;
         font-weight: bold;
     }
 
     /* Alternate row background color */
     tr:nth-child(even) {
-        background-color: #f9f9f9;
+        background-color: #6da5c0;
+    }
+ tr:nth-child(odd) {
+        background-color: #66a8cf;
     }
 </style>
 
@@ -52,21 +73,21 @@
                     <th>Account No</th>
                     <th>Customer Name</th>
                     <th>Email ID</th>
-                    <th>Phone No</th>
+                   
                     <th>Current Balance</th>
                     <th>Action</th>
                 </tr>";
 
         // Output data of each row
         while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-                    <td>" . $row["accountno"] . "</td>
-                    <td>" . $row["name"] . "</td>
-                    <td>" . $row["email"] . "</td>
-                    <td>" . $row["phone no"] . "</td>
-                    <td>" . $row["current bal"] . "</td>
-                    <td><a href='view.php?id=" . $row["accountno"] . "'>View</a></td>
-                </tr>";
+           echo '<tr>
+        <td>' . $row["accountno"] . '</td>
+        <td>' . $row["name"] . '</td>
+        <td>' . $row["email"] . '</td>
+        <td>' . $row["current bal"] . '</td>
+                <td><a class=button href="view.php?id=' . $row['accountno'] . '">view</a><a class="button" href="transferin.php? source_account=' . $row['accountno'] . '">Transfer Money</a></td>
+    </tr>';
+
         }
         echo "</table>";
     } else {

@@ -6,6 +6,20 @@
     background-color: #f5f5f5;
     border-radius: 4px;
   }
+.button {
+            display: inline-block;
+            background-color: #4CAF50;
+            border: none;
+            color: #f0f5f6;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
 
   label {
     display: block;
@@ -51,6 +65,6 @@
   <label for="transfer_amount">ENTER AMOUNT TO TRANSFER :</label>
   <input type="number" name="transfer_amount" id="transfer_amount" required>
 
-  <input type="submit" value="Transfer">
+  <input type="submit" value="Transfer"> <a class="button" href="bs_table.php?source_account=' . $row['accountno'] . '">Back</a>
 </form>
 

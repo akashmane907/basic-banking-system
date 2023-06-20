@@ -1,16 +1,18 @@
  <style>
         body {
-      
+      font-size: 20px;
       font-family: Arial, sans-serif;
+background-color: #0f969c;
       margin: 0;
       padding: 0;
-      background-image: url("2283451.jpg");
+   /*   background-image: url("2283451.jpg");*/
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center top 200px;
     }
 
-        header {
+
+         header {
       background-color: #333;
       color: #15c1a1;
       padding: 20px;
@@ -64,7 +66,10 @@
         .customer-details p {
             margin: 10px 0;
         }
-    </style>
+    </style>\ <header>
+    <h1>CUSTOMER DETAILS</h1>
+  </header>
+
 <main>
 <?php
 // Database connection
@@ -99,7 +104,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
     // Display the customer details
-    echo "<h1>Customer Details</h1>";
+    
     echo "<p><strong>Account No:</strong> " . $row["accountno"] . "</p>";
     echo "<p><strong>Customer Name:</strong> " . $row["name"] . "</p>";
     echo "<p><strong>Email ID:</strong> " . $row["email"] . "</p>";
@@ -107,7 +112,7 @@ if ($result->num_rows > 0) {
     echo "<p><strong>Current Balance:</strong> " . $row["current bal"] . "</p>";
 
     // Display the Transfer Money button
-    echo '<a class="button" href="transferin.php?source_account=' . $row['accountno'] . '">Transfer Money</a>';
+    echo '<a class="button" href="bs_table.php?source_account=' . $row['accountno'] . '">Back</a>';
 } else {
     echo "No customer found.";
 }
